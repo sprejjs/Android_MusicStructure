@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MusicStructureApp</string>
+    <string name="library">Library</string>
 </resources>
