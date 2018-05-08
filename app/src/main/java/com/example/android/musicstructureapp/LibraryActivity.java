@@ -16,7 +16,6 @@ public class LibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library_list);
 
-
         ArrayList<Song> words = new ArrayList<Song>();
         words.add(new Song("Ramstein", "Du hast"));
         words.add(new Song("Abba", "Money, money"));
