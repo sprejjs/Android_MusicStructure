@@ -1,7 +1,10 @@
 package com.example.android.musicstructureapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,7 +19,7 @@ public class LibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library_list);
 
-        ArrayList<Song> words = new ArrayList<Song>();
+        final ArrayList<Song> words = new ArrayList<Song>();
         words.add(new Song("Ramstein", "Du hast"));
         words.add(new Song("Abba", "Money, money"));
         words.add(new Song("Linkin Park", "Numb"));
@@ -33,6 +36,14 @@ public class LibraryActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listview);
 
         listView.setAdapter(itemsAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra(MainActivity.EXTRA_SONG, words.get(position));
+                startActivity(intent);
+            }
+        });
 
     }
 }

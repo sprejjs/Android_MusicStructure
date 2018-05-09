@@ -3,6 +3,7 @@ package com.example.android.musicstructureapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -11,11 +12,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     AppCompatActivity this_activity = this;
+    public static final String EXTRA_SONG = "song";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Song song = getIntent().getParcelableExtra(EXTRA_SONG);
+
+        Log.d("TEST", song.toString());
 
         Button numbers = findViewById(R.id.library_button);
         numbers.setOnClickListener(new View.OnClickListener() {
